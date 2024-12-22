@@ -10,11 +10,10 @@ body {
 }
 
 .root {
-  padding: 20px 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0 80px;
+  gap: 0 40px;
 }
 #rock,
 #paper,
@@ -24,18 +23,18 @@ body {
   align-items: center;
 }
 
-.root img {
-  height: 40px;
+.image {
+  font-size: 12rem;
 }
 
 .score_parent {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 60px;
+  /* gap: 40px; */
 }
 
-.score_parent img {
+.score_parent .image {
   height: 200px;
   margin-top: 50px;
 }
@@ -47,4 +46,12 @@ body {
 
 .result {
   padding-top: 100px;
+}
+
+.buttons:hover {
+  background-color: rgb(226, 243, 248);
+  padding: 20px;
+}
+.buttons {
+  padding: 20px;
 }

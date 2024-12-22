@@ -11,7 +11,7 @@ const rock = document.querySelector('#rock');
 
 rock.addEventListener('click', () =>
   setTimeout(() => {
-    myHand.src = './Assets/Images/rock2.png';
+    myHand.innerHTML = '✊🏻';
   }, 1000)
 );
 rock.addEventListener('click', () =>
@@ -30,7 +30,7 @@ rock.addEventListener('click', () => (result.innerHTML = ''));
 const paper = document.querySelector('#paper');
 paper.addEventListener('click', () =>
   setTimeout(() => {
-    myHand.src = './Assets/Images/paper2.png';
+    myHand.innerHTML = '✋🏻';
   }, 1000)
 );
 paper.addEventListener('click', () =>
@@ -49,7 +49,7 @@ paper.addEventListener('click', () => (result.innerHTML = ''));
 const scissors = document.querySelector('#scissors');
 scissors.addEventListener('click', () =>
   setTimeout(() => {
-    myHand.src = './Assets/Images/scissor2.jpeg';
+    myHand.innerHTML = '✌🏻';
   }, 1000)
 );
 scissors.addEventListener('click', () =>
@@ -68,13 +68,13 @@ scissors.addEventListener('click', () => (result.innerHTML = ''));
 function setComputersHandValue() {
   const randomNumber = Math.floor(Math.random() * 12 + 1);
   if (randomNumber >= 1 && randomNumber <= 4) {
-    computersHand.src = './Assets/Images/rock2.png';
+    computersHand.innerHTML = '✊🏻';
     computersHandValue = 'rock';
   } else if (randomNumber >= 5 && randomNumber <= 8) {
-    computersHand.src = './Assets/Images/paper2.png';
+    computersHand.innerHTML = '✋🏻';
     computersHandValue = 'paper';
   } else {
-    computersHand.src = './Assets/Images/scissor2.jpeg';
+    computersHand.innerHTML = '✌🏻';
     computersHandValue = 'scissor';
   }
   return computersHandValue;
