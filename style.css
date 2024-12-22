@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: cursive;
+  font-size: 2rem;
+}
+
+.root {
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 80px;
+}
+#rock,
+#paper,
+#scissors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.root img {
+  height: 40px;
+}
+
+.score_parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
+
+.score_parent img {
+  height: 200px;
+  margin-top: 50px;
+}
+
+.result,
+.score {
+  text-align: center;
+}
+
+.result {
+  padding-top: 100px;
+}
