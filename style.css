@@ -7,8 +7,8 @@
 body {
   font-family: cursive;
   font-size: 2rem;
-  background-color: burlywood;
-  color: #333;
+  background: linear-gradient(to right, #fc466b, #3f5efb);
+  color: #e0e0e0;
 }
 
 .root {
@@ -51,11 +51,50 @@ body {
 }
 
 .buttons:hover {
-  background-color: rgb(226, 243, 248);
   padding: 20px;
   cursor: pointer;
 }
-
+#scissors:hover {
+  background: linear-gradient(to right, #fb3d78, #304efb);
+}
+#paper:hover {
+  background: linear-gradient(to right, #fca5c5, #657eff);
+}
+#rock:hover {
+  background: linear-gradient(to right, #ff6a88, #4f75fb);
+}
 .buttons {
   padding: 20px;
+}
+
+.shakeMyHands {
+  animation: shakeMyHands 0.6s infinite ease-in-out;
+}
+
+.shakeComputerHands {
+  animation: shakeComputerHands 0.5s infinite ease-in-out;
+}
+
+@keyframes shakeMyHands {
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(-55deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes shakeComputerHands {
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(55deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
 }

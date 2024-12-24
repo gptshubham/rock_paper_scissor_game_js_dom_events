@@ -4,9 +4,6 @@ let myScore = document.querySelector('#my_points');
 let computersScore = document.querySelector('#computers_points');
 let result = document.querySelector('.result');
 
-let myHandValue;
-let computersHandValue;
-
 const rock = document.querySelector('#rock');
 
 rock.addEventListener('click', () => {
@@ -16,9 +13,8 @@ rock.addEventListener('click', () => {
 
 const rockClick = () => {
   myHand.innerHTML = '✊🏻';
-  myHandValue = 'rock';
-  computersHandValue = setComputersHandValue();
-  setScore();
+  computersChoice();
+  result_and_score();
 };
 
 const paper = document.querySelector('#paper');
@@ -29,9 +25,8 @@ paper.addEventListener('click', () => {
 
 const paperClick = () => {
   myHand.innerHTML = '✋🏻';
-  myHandValue = 'paper';
-  computersHandValue = setComputersHandValue();
-  setScore();
+  computersChoice();
+  result_and_score();
 };
 
 const scissors = document.querySelector('#scissors');
@@ -42,52 +37,48 @@ scissors.addEventListener('click', () => {
 
 const scissorsClick = () => {
   myHand.innerHTML = '✌🏻';
-  myHandValue = 'scissor';
-  computersHandValue = setComputersHandValue();
-  setScore();
+  computersChoice();
+  result_and_score();
 };
 
 const immediateChangesOnClick = () => {
   myHand.innerHTML = '🤜🏻';
   computersHand.innerHTML = '🤛🏻';
   result.innerHTML = '';
+  myHand.classList.add('shakeMyHands');
+  computersHand.classList.add('shakeComputerHands');
+  setTimeout(() => {
+    myHand.classList.remove('shakeMyHands');
+    computersHand.classList.remove('shakeComputerHands');
+  }, 1000);
 };
 
-function setComputersHandValue() {
-  const randomNumber = Math.floor(Math.random() * 12 + 1);
-  if (randomNumber >= 1 && randomNumber <= 4) {
-    computersHand.innerHTML = '✊🏻';
-    computersHandValue = 'rock';
-  } else if (randomNumber >= 5 && randomNumber <= 8) {
-    computersHand.innerHTML = '✋🏻';
-    computersHandValue = 'paper';
-  } else {
-    computersHand.innerHTML = '✌🏻';
-    computersHandValue = 'scissor';
-  }
-  return computersHandValue;
+function computersChoice() {
+  const iconOptions = ['✊🏻', '✋🏻', '✌🏻'];
+  const randomNumber = Math.floor(Math.random() * 3);
+  computersHand.innerHTML = iconOptions[randomNumber];
 }
 
-function setScore() {
-  if (myHandValue === 'rock' && computersHandValue === 'paper') {
+function result_and_score() {
+  if (myHand.innerHTML === '✊🏻' && computersHand.innerHTML === '✋🏻') {
     computersScore.innerHTML = Number(computersScore.innerHTML) + 1;
-    result.innerHTML = 'You Loose';
-  } else if (myHandValue === 'paper' && computersHandValue === 'rock') {
+    result.innerHTML = 'Computer Won!';
+  } else if (myHand.innerHTML === '✋🏻' && computersHand.innerHTML === '✊🏻') {
     myScore.innerHTML = Number(myScore.innerHTML) + 1;
-    result.innerHTML = 'You Win';
-  } else if (myHandValue === 'rock' && computersHandValue === 'scissor') {
+    result.innerHTML = 'You Won!';
+  } else if (myHand.innerHTML === '✊🏻' && computersHand.innerHTML === '✌🏻') {
     myScore.innerHTML = Number(myScore.innerHTML) + 1;
-    result.innerHTML = 'You Win';
-  } else if (myHandValue === 'scissor' && computersHandValue === 'rock') {
+    result.innerHTML = 'You Won!';
+  } else if (myHand.innerHTML === '✌🏻' && computersHand.innerHTML === '✊🏻') {
     computersScore.innerHTML = Number(computersScore.innerHTML) + 1;
-    result.innerHTML = 'You Loose';
-  } else if (myHandValue === 'scissor' && computersHandValue === 'paper') {
+    result.innerHTML = 'Computer Won!';
+  } else if (myHand.innerHTML === '✌🏻' && computersHand.innerHTML === '✋🏻') {
     myScore.innerHTML = Number(myScore.innerHTML) + 1;
-    result.innerHTML = 'You Win';
-  } else if (myHandValue === 'paper' && computersHandValue === 'scissor') {
+    result.innerHTML = 'You Won!';
+  } else if (myHand.innerHTML === '✋🏻' && computersHand.innerHTML === '✌🏻') {
     computersScore.innerHTML = Number(computersScore.innerHTML) + 1;
-    result.innerHTML = 'You Loose';
+    result.innerHTML = 'Computer Won!';
   } else {
-    result.innerHTML = `It's a Draw`;
+    result.innerHTML = `It's a Tie!`;
   }
 }
