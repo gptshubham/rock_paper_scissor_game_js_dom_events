@@ -9,61 +9,49 @@ let computersHandValue;
 
 const rock = document.querySelector('#rock');
 
-rock.addEventListener('click', () =>
-  setTimeout(() => {
-    myHand.innerHTML = '✊🏻';
-  }, 1000)
-);
-rock.addEventListener('click', () =>
-  setTimeout(() => {
-    myHandValue = 'rock';
-  }, 1000)
-);
-rock.addEventListener('click', () =>
-  setTimeout(() => {
-    computersHandValue = setComputersHandValue();
-  }, 1000)
-);
-rock.addEventListener('click', () => setTimeout(setScore, 1000));
-rock.addEventListener('click', () => (result.innerHTML = ''));
+rock.addEventListener('click', () => {
+  setTimeout(rockClick, 1000);
+  immediateChangesOnClick();
+});
+
+const rockClick = () => {
+  myHand.innerHTML = '✊🏻';
+  myHandValue = 'rock';
+  computersHandValue = setComputersHandValue();
+  setScore();
+};
 
 const paper = document.querySelector('#paper');
-paper.addEventListener('click', () =>
-  setTimeout(() => {
-    myHand.innerHTML = '✋🏻';
-  }, 1000)
-);
-paper.addEventListener('click', () =>
-  setTimeout(() => {
-    myHandValue = 'paper';
-  }, 1000)
-);
-paper.addEventListener('click', () =>
-  setTimeout(() => {
-    computersHandValue = setComputersHandValue();
-  }, 1000)
-);
-paper.addEventListener('click', () => setTimeout(setScore, 1000));
-paper.addEventListener('click', () => (result.innerHTML = ''));
+paper.addEventListener('click', () => {
+  setTimeout(paperClick, 1000);
+  immediateChangesOnClick();
+});
+
+const paperClick = () => {
+  myHand.innerHTML = '✋🏻';
+  myHandValue = 'paper';
+  computersHandValue = setComputersHandValue();
+  setScore();
+};
 
 const scissors = document.querySelector('#scissors');
-scissors.addEventListener('click', () =>
-  setTimeout(() => {
-    myHand.innerHTML = '✌🏻';
-  }, 1000)
-);
-scissors.addEventListener('click', () =>
-  setTimeout(() => {
-    myHandValue = 'scissor';
-  }, 1000)
-);
-scissors.addEventListener('click', () =>
-  setTimeout(() => {
-    computersHandValue = setComputersHandValue();
-  }, 1000)
-);
-scissors.addEventListener('click', () => setTimeout(setScore, 1000));
-scissors.addEventListener('click', () => (result.innerHTML = ''));
+scissors.addEventListener('click', () => {
+  setTimeout(scissorsClick, 1000);
+  immediateChangesOnClick();
+});
+
+const scissorsClick = () => {
+  myHand.innerHTML = '✌🏻';
+  myHandValue = 'scissor';
+  computersHandValue = setComputersHandValue();
+  setScore();
+};
+
+const immediateChangesOnClick = () => {
+  myHand.innerHTML = '🤜🏻';
+  computersHand.innerHTML = '🤛🏻';
+  result.innerHTML = '';
+};
 
 function setComputersHandValue() {
   const randomNumber = Math.floor(Math.random() * 12 + 1);
